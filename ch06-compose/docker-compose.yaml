@@ -11,10 +11,10 @@ services:
       # # 寫法二
       # MONGO_INITDB_ROOT_USERNAME: max
       # MONGO_INITDB_ROOT_PASSWORD: secret
-      # 寫法三：使用 .env 檔案
-      env_file: ./env/mongodb.env
-      # networks: # 可以不用寫，compose 會預設
-      #   - goals-net
+    # 寫法三：使用 .env 檔案
+    env_file: ./env/mongodb.env
+    # networks: # 可以不用寫，compose 會預設
+    #   - goals-net
   # backend:
   #   image:
   # frontend:
