@@ -12,7 +12,7 @@ services:
       # MONGO_INITDB_ROOT_USERNAME: max
       # MONGO_INITDB_ROOT_PASSWORD: secret
     # 寫法三：使用 .env 檔案
-    env_file: ./env/mongodb.env
+    env_file: ./env/mongo.env
     # networks: # 想自定義名稱再加就好了，因為 compose 會預設
     #   - customize-net
   backend:
