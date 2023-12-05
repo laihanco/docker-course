@@ -27,14 +27,21 @@ services:
       - '80:80'
     volumes:
       - logs:/app/logs
-      - ./backend:/app
+      - ./backend:/app # 可以直接寫相對路徑
       - /app/node_modules
     env_file: ./env/backend.env
     depends_on:
       - mongodb
-
-  # frontend:
-  #   image:
+  frontend:
+    build: ./frontend
+    ports:
+      - '3000:3000'
+    volumes:
+      - ./frontend/src:/app/src
+    stdin_open: true
+    tty: true
+    depends_on:
+      - backend
 
 volumes: # 有用到命名卷，要另外在這裡設定
   data: # 冒號後沒有值
