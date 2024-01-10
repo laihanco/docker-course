@@ -16,7 +16,12 @@ services:
     # 如果要從本機跟 php 互動才要寫 port，此案例是透過容器間的溝通
     # ports:
       # - '3000:9000' 
-  # mysql:
+  mysql:
+    image: mysql:5.7
+    # environment:  官網查可用變數們、通常寫在 .env
+    #   - name=value
+    env_file:
+      - ./env/mysql.env
   # composer:
   # artisan:
   # npm:
