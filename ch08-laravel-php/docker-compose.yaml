@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  server: 'nginx:stable-alpine'
+  ports:
+    - '8000:80'  # 有沒有''都沒關係，加了只為預防非預期事件發生
+  volumes:
+    - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+
+  # php:
+  # mysql:
+  # composer:
+  # artisan:
+  # npm:
+    
