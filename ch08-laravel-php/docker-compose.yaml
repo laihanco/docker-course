@@ -7,7 +7,15 @@ services:
   volumes:
     - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
 
-  # php:
+  php:
+    build:
+      context: ./dockerfiles
+      dockerfile: php.dockerfile
+    volumes:
+      - ./src:/var/www/html:delegated
+    # 如果要從本機跟 php 互動才要寫 port，此案例是透過容器間的溝通
+    # ports:
+      # - '3000:9000' 
   # mysql:
   # composer:
   # artisan:
