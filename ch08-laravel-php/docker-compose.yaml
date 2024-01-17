@@ -1,12 +1,12 @@
 version: '3.8'
 
 services:
-  server: 'nginx:stable-alpine'
-  ports:
-    - '8000:80'  # 有沒有''都沒關係，加了只為預防非預期事件發生
-  volumes:
-    - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
-
+  server:
+    image: 'nginx:stable-alpine'
+    ports:
+      - '8000:80'  # 有沒有''都沒關係，加了只為預防非預期事件發生
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
   php:
     build:
       context: ./dockerfiles
@@ -21,8 +21,7 @@ services:
     # environment:  官網查可用變數們、通常寫在 .env
     #   - name=value
     env_file:
-      - ./env/mysql.env
-  # composer:
+      - ./env/mysql.env 
   # artisan:
   # npm:
     
